@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/GUI.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/hud/progress-under.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/hud/progress-above.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/hud/progress.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/FreePixel.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/fonts/myFont.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ProgressBar" type="TextureProgress" parent="."]
+margin_left = 20.3851
+margin_top = 1.64879
+margin_right = 120.385
+margin_bottom = 41.6488
+value = 100.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+
+[node name="Score" type="RichTextLabel" parent="."]
+margin_left = 1.4989
+margin_top = 18.7363
+margin_right = 101.499
+margin_bottom = 58.7363
+custom_fonts/normal_font = SubResource( 1 )
+text = "Score: 0"
+
+[node name="HP" type="RichTextLabel" parent="."]
+margin_left = 0.749443
+margin_top = -0.299778
+margin_right = 100.749
+margin_bottom = 39.7002
+custom_fonts/normal_font = ExtResource( 6 )
+text = "HP: "

@@ -1,0 +1,187 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/character/puloEQueda.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/character/andar.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/character/parado.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/sfx/pular.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/sfx/dano.wav" type="AudioStream" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 7.73715
+height = 13.6048
+
+[sub_resource type="Animation" id=2]
+resource_name = "Andando"
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 5, 4, 21, 34 ), Rect2( 41, 4, 18, 32 ), Rect2( 74, 4, 15, 32 ), Rect2( 104, 4, 18, 31 ), Rect2( 136, 4, 19, 34 ), Rect2( 170, 4, 17, 32 ), Rect2( 202, 4, 18, 32 ), Rect2( 235, 4, 21, 31 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 5, 5, 19, 33 ), Rect2( 39, 5, 19, 33 ), Rect2( 73, 5, 19, 33 ), Rect2( 107, 5, 19, 33 ), Rect2( 141, 5, 19, 35 ), Rect2( 175, 5, 19, 35 ), Rect2( 209, 5, 19, 35 ), Rect2( 243, 5, 19, 35 ), Rect2( 277, 5, 19, 33 ), Rect2( 311, 4, 19, 33 ), Rect2( 345, 4, 19, 33 ), Rect2( 379, 4, 19, 33 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Pulando"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 5, 4, 17, 35 ), Rect2( 37, 4, 18, 35 ), Rect2( 70, 4, 20, 35 ), Rect2( 105, 4, 20, 36 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Pulo")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 8.25421
+height = 13.82
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 5.07995, 1.19541 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 1
+emission_sphere_radius = 13.0
+flag_disable_z = true
+spread = 120.12
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 20.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.752941, 0.054902, 0.054902, 1 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"personagem",
+]]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 105, 4, 20, 36 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Andando = SubResource( 2 )
+anims/Parado = SubResource( 3 )
+anims/Pulando = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = -235
+limit_top = -50
+limit_smoothed = true
+smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="areaDano" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaDano"]
+shape = SubResource( 5 )
+
+[node name="areaBater" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaBater"]
+position = Vector2( -0.122086, 15.0167 )
+shape = SubResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 100
+explosiveness = 1.0
+process_material = SubResource( 7 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Tempo_invencivel" type="Timer" parent="."]
+one_shot = true
+
+[node name="TempoMorrer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Pulo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Dano" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
